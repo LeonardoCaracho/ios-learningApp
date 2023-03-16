@@ -8,12 +8,20 @@
 import Foundation
 
 class ContentModel: ObservableObject {
+    // List of modules
     @Published var modules = [Module]()
+    
+    // Current module
+    @Published var currentModule: Module?
+    
     var styleData: Data?
     
     init() {
         getLocalData()
     }
+    
+    
+    // MARK: - Data methods
     
     func getLocalData() {
         let jsonUrl = Bundle.main.url(forResource: "data", withExtension: "json")
@@ -39,6 +47,13 @@ class ContentModel: ObservableObject {
         catch {
             print("Couldn't parse style data")
         }
-        
+    }
+    
+    // MARK: - Module navigation methods
+    
+    func beginModule(_ moduleId:Int) {
+        currentModule = modules.first {
+            $0.id == moduleId
+        }
     }
 }
