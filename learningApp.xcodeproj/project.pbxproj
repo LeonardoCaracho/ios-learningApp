@@ -24,6 +24,7 @@
 		4CDE3DC929C51E6100CD38D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDE3DC829C51E6000CD38D3 /* UIKit.framework */; };
 		4CDE3DCB29C51F3300CD38D3 /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE3DCA29C51F3300CD38D3 /* CodeTextView.swift */; };
 		4CDE3DEE29C7896A00CD38D3 /* RectangleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE3DED29C7896A00CD38D3 /* RectangleCard.swift */; };
+		4CDE3E0E29C797E700CD38D3 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE3E0D29C797E700CD38D3 /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		4CDE3DC829C51E6000CD38D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4CDE3DCA29C51F3300CD38D3 /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		4CDE3DED29C7896A00CD38D3 /* RectangleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCard.swift; sourceTree = "<group>"; };
+		4CDE3E0D29C797E700CD38D3 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				4CDE3DA229C3D0A900CD38D3 /* ContentDetailView.swift */,
 				4CDE3DCA29C51F3300CD38D3 /* CodeTextView.swift */,
 				4CDE3DED29C7896A00CD38D3 /* RectangleCard.swift */,
+				4CDE3E0D29C797E700CD38D3 /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDE3E0E29C797E700CD38D3 /* TestView.swift in Sources */,
 				4C44C32F29BC98C400001678 /* HomeView.swift in Sources */,
 				4CDE3D9D29BFD92400CD38D3 /* HomeViewRow.swift in Sources */,
 				4CDE3D9F29C277DA00CD38D3 /* ContentView.swift in Sources */,
