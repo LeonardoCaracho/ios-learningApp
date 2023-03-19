@@ -19,6 +19,11 @@
 		4CDE3D9F29C277DA00CD38D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE3D9E29C277DA00CD38D3 /* ContentView.swift */; };
 		4CDE3DA129C2931B00CD38D3 /* ContentViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE3DA029C2931B00CD38D3 /* ContentViewRow.swift */; };
 		4CDE3DA329C3D0A900CD38D3 /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE3DA229C3D0A900CD38D3 /* ContentDetailView.swift */; };
+		4CDE3DA629C3E04E00CD38D3 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDE3DA529C3E04E00CD38D3 /* AVKit.framework */; };
+		4CDE3DA829C3E15300CD38D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE3DA729C3E15300CD38D3 /* Constants.swift */; };
+		4CDE3DC929C51E6100CD38D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDE3DC829C51E6000CD38D3 /* UIKit.framework */; };
+		4CDE3DCB29C51F3300CD38D3 /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE3DCA29C51F3300CD38D3 /* CodeTextView.swift */; };
+		4CDE3DEE29C7896A00CD38D3 /* RectangleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE3DED29C7896A00CD38D3 /* RectangleCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +40,11 @@
 		4CDE3D9E29C277DA00CD38D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4CDE3DA029C2931B00CD38D3 /* ContentViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewRow.swift; sourceTree = "<group>"; };
 		4CDE3DA229C3D0A900CD38D3 /* ContentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailView.swift; sourceTree = "<group>"; };
+		4CDE3DA529C3E04E00CD38D3 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		4CDE3DA729C3E15300CD38D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4CDE3DC829C51E6000CD38D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4CDE3DCA29C51F3300CD38D3 /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
+		4CDE3DED29C7896A00CD38D3 /* RectangleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDE3DA629C3E04E00CD38D3 /* AVKit.framework in Frameworks */,
+				4CDE3DC929C51E6100CD38D3 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +65,7 @@
 			children = (
 				4C44C32B29BC98C400001678 /* learningApp */,
 				4C44C32A29BC98C400001678 /* Products */,
+				4CDE3DA429C3E04D00CD38D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +108,8 @@
 				4CDE3D9E29C277DA00CD38D3 /* ContentView.swift */,
 				4CDE3DA029C2931B00CD38D3 /* ContentViewRow.swift */,
 				4CDE3DA229C3D0A900CD38D3 /* ContentDetailView.swift */,
+				4CDE3DCA29C51F3300CD38D3 /* CodeTextView.swift */,
+				4CDE3DED29C7896A00CD38D3 /* RectangleCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,8 +142,18 @@
 			children = (
 				4CB165C329BC9C5600C38B4B /* data.json */,
 				4CB165C229BC9C5500C38B4B /* style.html */,
+				4CDE3DA729C3E15300CD38D3 /* Constants.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4CDE3DA429C3E04D00CD38D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CDE3DC829C51E6000CD38D3 /* UIKit.framework */,
+				4CDE3DA529C3E04E00CD38D3 /* AVKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,8 +234,11 @@
 				4CDE3DA329C3D0A900CD38D3 /* ContentDetailView.swift in Sources */,
 				4C44C32D29BC98C400001678 /* learningApp.swift in Sources */,
 				4CDE3DA129C2931B00CD38D3 /* ContentViewRow.swift in Sources */,
+				4CDE3DCB29C51F3300CD38D3 /* CodeTextView.swift in Sources */,
 				4C44C34129BC99BC00001678 /* ContentModel.swift in Sources */,
 				4CB165C729BC9E3B00C38B4B /* Models.swift in Sources */,
+				4CDE3DEE29C7896A00CD38D3 /* RectangleCard.swift in Sources */,
+				4CDE3DA829C3E15300CD38D3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

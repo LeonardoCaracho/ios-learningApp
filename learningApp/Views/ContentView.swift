@@ -17,10 +17,22 @@ struct ContentView: View {
                     
                     ForEach(0..<module.content.lessons.count) { index in
                         let lesson = module.content.lessons[index]
-                        ContentViewRow(lesson: lesson, index: index)
+                        
+                        NavigationLink(
+                            destination:
+                                ContentDetailView()
+                                .onAppear().onAppear(perform: {
+                                    model.beginLesson(lesson.id)
+                                }),
+                            label: {
+                                ContentViewRow(lesson: lesson, index: index)
+                            }
+                        )
+                        
                     }
                 }
             }
+            .accentColor(.black)
             .padding()
             .navigationTitle("Learn \(model.currentModule?.category ?? "")")
         }
