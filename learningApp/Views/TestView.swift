@@ -70,15 +70,23 @@ struct TestView: View {
                 }
                 
                 Button(action: {
-                    if selectedAnswerIndex == model.currentQuestion!.correctIndex {
-                        numCorrect += 1
+                    if submitted == true {
+                        model.nextQuestion()
+                        
+                        submitted = false
+                        selectedAnswerIndex = nil
+                    } else {
+                        if selectedAnswerIndex == model.currentQuestion!.correctIndex {
+                            numCorrect += 1
+                        }
+                        
+                        submitted = true
                     }
-                    submitted.toggle()
                 }) {
                     ZStack {
                         RectangleCard(color: .green, height: 48)
                         
-                        Text("Submit")
+                        Text(buttonText)
                             .bold()
                     }
                 }
@@ -90,6 +98,16 @@ struct TestView: View {
         } else {
             ProgressView()
         }
+    }
+    
+    var buttonText:String {
+        if submitted {
+            return model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count ?
+            "Finish" :
+            "Next"
+        }
+        
+        return "Submit"
     }
 }
 
