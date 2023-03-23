@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ContentViewRow: View {
-    var lesson: Lesson
+    @EnvironmentObject var model: ContentModel
     var index: Int
+    
+    var lesson: Lesson {
+        if (index < model.currentModule?.content.lessons.count ?? 0) {
+            return model.currentModule!.content.lessons[index]
+        }
+        return Lesson(id: 0, title: "", video: "", duration: "", explanation: "")
+    }
     
     var body: some View {
         
@@ -38,9 +45,4 @@ struct ContentViewRow: View {
     }
 }
 
-struct ContentViewRow_Previews: PreviewProvider {
-    static var previews: some View {
-        let lesson = Lesson(id: 1, title: "", video: "", duration: "", explanation: "")
-        ContentViewRow(lesson: lesson, index: 1)
-    }
-}
+

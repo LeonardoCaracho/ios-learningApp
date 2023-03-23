@@ -15,17 +15,15 @@ struct ContentView: View {
             LazyVStack {
                 if let module = model.currentModule {
                     
-                    ForEach(0..<module.content.lessons.count) { index in
-                        let lesson = module.content.lessons[index]
-                        
+                    ForEach(0..<module.content.lessons.count) { index in                        
                         NavigationLink(
                             destination:
                                 ContentDetailView()
                                 .onAppear().onAppear(perform: {
-                                    model.beginLesson(lesson.id)
+                                    model.beginLesson(index)
                                 }),
                             label: {
-                                ContentViewRow(lesson: lesson, index: index)
+                                ContentViewRow(index: index)
                             }
                         )
                         

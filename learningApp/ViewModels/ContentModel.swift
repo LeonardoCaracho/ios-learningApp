@@ -32,25 +32,44 @@ class ContentModel: ObservableObject {
     
     init() {
         getLocalData()
+        getRemoteData()
     }
     
     
     // MARK: - Data methods
     
+    func getRemoteData() {
+        let urlString = "https://codewithchris.github.io/learningJSON/data.json"
+        
+        let url = URL(string: urlString)
+        
+        guard url != nil else {
+            return
+        }
+        
+        let request = URLRequest(url: url!)
+        
+        let session = URLSession.shared
+        
+        session.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                return
+            }
+            
+            let modules = self.jsonDecode(url: url!)
+            
+            DispatchQueue.main.async {
+                self.modules += modules
+            }
+        }.resume()
+    }
+    
     func getLocalData() {
         let jsonUrl = Bundle.main.url(forResource: "data", withExtension: "json")
         
-        do {
-            let jsonData = try Data(contentsOf: jsonUrl!)
-            let jsonDecoder = JSONDecoder()
-            
-            let modules = try jsonDecoder.decode([Module].self, from: jsonData)
-            
-            self.modules = modules
-        }
-        catch {
-            print("Couldn't parse local data")
-        }
+        let modules = self.jsonDecode(url: jsonUrl!)
+        
+        self.modules = modules
         
         let styleUrl = Bundle.main.url(forResource: "style", withExtension: "html")
         
@@ -60,6 +79,19 @@ class ContentModel: ObservableObject {
         }
         catch {
             print("Couldn't parse style data")
+        }
+    }
+    
+    private func jsonDecode(url:URL) -> [Module] {
+        do {
+            let jsonData = try Data(contentsOf: url)
+            let jsonDecoder = JSONDecoder()
+            
+            return try jsonDecoder.decode([Module].self, from: jsonData)
+        }
+        catch {
+            print(error)
+            return []
         }
     }
     
@@ -83,6 +115,9 @@ class ContentModel: ObservableObject {
     }
     
     func hasNextLesson() -> Bool {
+        guard currentModule != nil else {
+            return false
+        }
         return (currentLessonIndex + 1) < currentModule!.content.lessons.count
     }
     

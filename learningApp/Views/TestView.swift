@@ -12,9 +12,10 @@ struct TestView: View {
     @State var selectedAnswerIndex:Int?
     @State var numCorrect = 0
     @State var submitted = false
+    @State var showResults = false
     
     var body: some View {
-        if model.currentQuestion != nil {
+        if model.currentQuestion != nil && showResults == false {
             VStack(alignment: .leading) {
                 Text("Question \(model.currentQuestionIndex + 1) of \(model.currentModule?.test.questions.count ?? 0)")
                     .padding(.leading, 20)
@@ -71,10 +72,15 @@ struct TestView: View {
                 
                 Button(action: {
                     if submitted == true {
-                        model.nextQuestion()
                         
-                        submitted = false
-                        selectedAnswerIndex = nil
+                        if (model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count) {
+                            showResults = true
+                        } else {
+                            model.nextQuestion()
+                            
+                            submitted = false
+                            selectedAnswerIndex = nil
+                        }
                     } else {
                         if selectedAnswerIndex == model.currentQuestion!.correctIndex {
                             numCorrect += 1
@@ -96,8 +102,10 @@ struct TestView: View {
             }
             .navigationBarTitle("\(model.currentModule?.category ?? "") Test")
         }
-        else {
+        else if (showResults) {
             TestResultView(numCorrect: numCorrect)
+        } else {
+            ProgressView()
         }
     }
     
